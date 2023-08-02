@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Performance Prediction System</title>
+	<link rel="icon" type="image/x-icon" href="https://icon-icons.com/icon/eye/61542">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+		font-family: 'Josefin Sans', sans-serif;
+		box-sizing: border-box;
+	}
+	.hero{
+		height: 100vh;
+		width: 100%;
+	/*	background-image: url("background.jpg");*/
+		background: #101010;
+		background-size: cover;
+		background-position: center;
+	}
+	nav{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 20px;
+		padding-left: 3%;
+		padding-right: 8%;
+	}
+	.logo{
+		color: white;
+		font-size: 50px;
+		letter-spacing: 1px;
+
+	}
+	span{
+		color: #f9004d;
+	}
+	nav ul li{
+		list-style-type: none;
+		display: inline-block;
+		padding: 10px 25px;
+	}
+
+
+
+	.content{
+		position: absolute;
+		top: 60%;
+		left:8%;
+		transform: translateY(-50%);
+	}
+	h1{
+		color: white;
+		margin: 20px 0px 20px;
+		font-size: 75px;
+	}
+	h3{
+		color: white;
+		font-size: 25px;
+		margin-bottom: 50px;
+	}
+	h4{
+		color: #fcfc;
+		letter-spacing: 2px;
+		font-size: 20px;
+	}
+
+
+
+
+	.service{
+		background: #101010;
+		width: 100%;
+		padding: 100px 0px;
+	}
+	.title h2{
+		color: white;
+		font-size: 75px;
+		width: 1130px;
+		margin: 30px auto;
+		text-align: center;
+	}
+	.box{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 400px;
+	}
+
+	.card{
+		height: 365px;
+		width: 335px;
+		padding: 20px 35px;
+		background: #191919;
+		border-radius: 20px;
+		margin: 15px;
+		position: relative;
+		overflow: hidden;
+		text-align: center;
+	}
+	.card i{
+		font-size: 50px;
+		display: block;
+		text-align: center;
+		margin: 25px 0px;
+		color: #f9004d;
+
+	}
+	h5{
+		color: white;
+		font-size: 23px;
+		margin-bottom: 15px;
+	}
+	.pra p{
+		color: #fcfc;
+		font-size: 16px;
+		line-height: 27px;
+		margin-bottom: 25px;
+	}
+
+
+
+	footer{
+		position: relative;
+		width: 100%;
+		height: 400px;
+		background: #101010;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	footer p:nth-child(1){
+		font-size: 30px;
+		color: white;
+		margin-bottom: 20px;
+		font-weight: bold;
+	}
+	footer p:nth-child(2){
+		color: white;
+		font-size: 17px;
+		width: 500px;
+		text-align: center;
+		line-height: 26px;
+	}
+	footer p:nth-child(3){
+		color: white;
+		font-size: 17px;
+		width: 500px;
+		text-align: center;
+		line-height: 26px;
+	}
+
+	footer p:nth-child(4){
+		color: white;
+		font-size: 17px;
+		width: 500px;
+		text-align: center;
+		line-height: 26px;
+	}
+	.social{
+		display: flex;
+	}
+	.social a{
+		width: 45px;
+		height: 45px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background:  #f9004d;
+		border-radius: 50%;
+		margin: 22px 10px;
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+	}
+	.social a:hover{
+		transform: scale(1.3);
+		transition: .3s;
+	}
+	.end{
+		position: absolute;
+		color:#f9004d;
+		bottom: 35px;
+		font-size: 18px;
+	}
+
+
+	    body {
+	        margin:0;
+	        padding: 0;
+	        /* height: 500vh; */
+	        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	    }
+
+	    .app {
+
+		   background:#101010;
+
+	        background-size: 700%;
+	        display: flex;
+	        justify-content: center;
+	        align-items: center;
+
+	        flex-flow: column nowrap;
+
+
+	    }
+
+	    .table {
+
+	        backdrop-filter: blur(4px);
+	        padding: 2em 0em;
+			cellspacing:2em;
+	        box-shadow: 10px 15px 20px rgba(0, 0, 0, 0,1);
+	        border-radius: 10px;
+	        width:40vw;
+	        height:1300px;
+	        display: flex;
+	        flex-flow: row wrap;
+	        justify-content: space-around;
+	        position: relative;
+	        top: 0vw;
+	    }
+
+	    .wrap {
+	        margin: 0.5em;
+
+	        display: flex;
+	        flex-flow: column nowrap;
+	        justify-content: space-between;
+
+	    }
+
+	    .wrap .col {
+
+	        text-align: center;
+	        font-size: 2em;
+	        padding-bottom: 0.2 em;
+			padding-top:3em;
+	        color: white;
+	        text-transform: uppercase;
+	        word-wrap: break-word;
+
+	    }
+
+	    .value input,
+	    .value select {
+	        width: 100%;
+	        font-size: 1.4em;
+	        border-color:white;
+	        backdrop-filter: blur(4px);
+	        box-shadow: 10 5px 10px rgba(0, 0, 0, 0.4);
+	        background: none;
+	       color: #f9004d;
+	        padding: 0.25em 0.5em;
+	        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+	    }
+
+	    .value select option {
+	        background: rgba(0, 0, 0, 0.3);
+	        color: whitesmoke;
+	    }
+
+	    .submitBtn {
+	        position: relative;
+	        top: 0.5vw;
+	        margin-top: 1em;
+	        background: rgba(0, 0, 0, 0.3);
+	        color: whitesmoke;
+	        padding: 0.5em 2em;
+	        font-size: 1.5em;
+	        text-transform: uppercase;
+	        border-color:white;
+			 color: #f9004d;
+
+	    }
+
+	    #final_price {
+
+	        color: #f9004d;
+	        font-size:x-large;
+	        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	        border: solid;
+	        border-radius: 10px;
+	        width:630px;
+	        height: 180x;
+	        text-align: left;
+	        padding: 30px;
+	        background-color: black;
+	        border-color: white;
+
+
+	    }
+
+
+	</style>
+
+
+</head>
+<body>
+
+
+	<div class="hero">
+		<nav>
+			<h2 class="logo">♕<span>PRedict it</span></h2>
+
+		</nav>
+
+		<div class="content">
+
+		<h2 style="color:white;">Student Performance Prediction System</h2>
+		<br>
+		<br>
+			<h4>Hello,Students</h4>
+			<h1>Foresee<span>Your Grades!</span></h1>
+			<br>
+			<br>
+			<h3>A web app to help you to foresee your final grades</h3>
+			<h3>We help you to improve the learning journey!!</h3>
+			<br>
+
+			<h3>Srcoll Down ↓↓</h3>
+		</div>
+	</div>
+
+
+
+
+
+	<div class="service">
+		<div class="title">
+			<h2>Who is Student Performance Prediction System For?</h2>
+
+		</div>
+
+		<div class="box">
+			<div class="card">
+				<i class="far fa-user"></i>
+				<h5>Teachers</h5>
+
+				<div class="pra">
+					<p style="font-size:30px;">Help teachers and or lecturer to understand students better</p>
+				</div>
+			</div>
+
+			<div class="card">
+				<i class="far fa-user"></i>
+				<h5>Students</h5>
+				<br>
+				<div class="pra">
+				<p style="font-size:30px;">Help students to improve their work and learning journey throughout the semester</p>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+ <form class="app" method="POST" action="/predict">
+        <div id="final_price">
+         <h2 style="text-align:center;">  Average Score:  {{ Average }}  </h2>
+
+        </div>
+
+        <div class="table">
+
+            <div class="wrap">
+                <div class="col">Gender</div>
+                <div class="value">
+                    <select name="Gender" id="Gender">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="wrap">
+                <div class="col">Race/ethnicity</div>
+
+                <div class="value">
+
+                    <select name="Race/ethnicity" id="Race/ethnicity">
+                        <option value="Group A">Group A</option>
+                        <option value="Group B">Group B</option>
+                        <option value="Group C">Group C</option>
+                        <option value="Group D">Group D</option>
+                        <option value="Group E">Group E</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="col">Parental Level of Education
+                </div>
+                <div class="value">
+                    <select name="Parental_Level_of_Education" id="Parental Level of Education">
+                        <option value="some high school">Some High School</option>
+                        <option value="high school">High School</option>
+                        <option value="associate's degree">Associate's Degree</option>
+                        <option value="master's degree">Master's Degree</option>
+                        <option value="some college">some college</option>
+                        <option value="bachelor's degree">bachelor's degree</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="col">Math Score</div>
+                <div class="value">
+                    <input type="text" name="Math_Score" required="required">
+                </div>
+
+            </div>
+
+            <div class="wrap">
+                <div class="col">Reading Score
+                </div>
+                <div class="value">
+                    <input type="text" name="Reading_score" required="required">
+
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="col">Writing Score
+                </div>
+                <div class="value">
+                    <input type="text" name="Writing_score" required="required">
+
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="col">Lunch
+                </div>
+                <div class="value">
+
+                    <select name="Lunch" id="Lunch">
+                        <option value="standard">Standard</option>
+                        <option value="free/reduced">Free/Reduced</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="col">test preparation course
+                </div>
+                <div class="value">
+                    <select name="test_preparation_course" id="test preparation course">
+                        <option value="None">None</option>
+                        <option value="Completed">Completed</option>
+                        </option>
+                    </select>
+
+                </div>
+            </div>
+
+        </div>
+        <button class="submitBtn" type="submit">Submit </button>
+    </form>
+
+		<footer>
+			<p>Our Team</p>
+			<p>Maithili Sude</p>
+			<p>Napul Ldbde</p>
+			<p>Siddhesh Chaudhari</p>
+			<div class="social">
+				<a href="#"><i class="fab fa-facebook-f"></i></a>
+				<a href="#"><i class="fab fa-instagram"></i></a>
+				<a href="#"><i class="fab fa-dribbble"></i></a>
+			</div>
+			<p class="end">CopyRight By Maithili Sude</p>
+		</footer>
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>
